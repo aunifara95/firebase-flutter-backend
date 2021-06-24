@@ -148,13 +148,13 @@ class _MyLoginPageState extends State<LoginPage> {
                     TextStyle(fontWeight: FontWeight.w500, fontSize: 20.0),
                   ),
                 ),
-              )
-            ],
+              )],
           ),
         ),
       ),
     );
   }
+
 }
 
 class ToastGravity {

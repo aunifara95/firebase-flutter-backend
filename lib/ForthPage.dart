@@ -16,7 +16,7 @@ class Record {
         Email = map['Email'],
         Phone = map['Phone'];
 
-  Record.fromSnapshot(DocumentSnapshot snapshot)
+  Record.fromSnapshot(snapshot)
       : this.fromMap(snapshot.data, reference: snapshot.reference);
 
   @override
@@ -37,7 +37,7 @@ class ForthPage extends StatelessWidget {
 
   Widget _buildBody(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: Firestore.instance.collection('baby').snapshots(),
+      stream: FirebaseFirestore.instance.collection('baby').snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) return LinearProgressIndicator();
 
@@ -47,7 +47,7 @@ class ForthPage extends StatelessWidget {
               DataColumn(label: Text('Phone')),
               DataColumn(label: Text('Email')),
             ],
-            rows: _buildList(context, snapshot.data!.documents)
+            rows: _buildList(context, snapshot.data!.docs)
         );
       },
     );

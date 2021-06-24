@@ -21,16 +21,18 @@ class HomePage extends StatefulWidget {
 
 class _HomeState extends State<HomePage> {
   //top post
+  // ignore: cancel_subscriptions
   late StreamSubscription<QuerySnapshot>subscription;
   late List<DocumentSnapshot>snapshot;
 
-  CollectionReference collectionReference=Firestore.instance.collection("TopPost");
+  CollectionReference collectionReference=FirebaseFirestore.instance.collection("TopPost");
 
   //for body post
+  // ignore: cancel_subscriptions
   late StreamSubscription<QuerySnapshot>sdSubscription;
   late List<DocumentSnapshot>sdSnapshot;
 
-  CollectionReference SdCollectionReference=Firestore.instance.collection("BodyPost");
+  CollectionReference SdCollectionReference=FirebaseFirestore.instance.collection("BodyPost");
 
 
   @override
@@ -38,13 +40,13 @@ class _HomeState extends State<HomePage> {
 
     subscription=collectionReference.snapshots().listen((datasnapshot) {
       setState(() {
-        snapshot=datasnapshot.documents;
+        snapshot=datasnapshot.docs;
       });
     });
 
     // ignore: non_constant_identifier_names
     sdSubscription=SdCollectionReference.snapshots().listen((SdDatasnap) {
-      sdSnapshot=SdDatasnap.documents;
+      sdSnapshot=SdDatasnap.docs;
     });
 
 
@@ -53,11 +55,11 @@ class _HomeState extends State<HomePage> {
   }
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  late FirebaseUser user;
+  late User UserFirebase;
 
 
   initUser() async {
-    user = await _auth.currentUser();
+    UserFirebase = Future as User; _auth.currentUser!;
     setState(() {});
   }
 
@@ -93,7 +95,7 @@ class _HomeState extends State<HomePage> {
           child: new ListView(
             children: <Widget>[
               UserAccountsDrawerHeader(
-                accountEmail: Text("${user?.email}"),
+                accountEmail: Text("${UserFirebase.email}"),
                 decoration: new BoxDecoration(
                     color: Colors.purple
                 ), accountName: null,

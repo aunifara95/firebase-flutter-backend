@@ -17,6 +17,8 @@ class _RegisterPage extends State<RegisterPage> {
 
   late String email, password;
 
+  get snapshot => null;
+
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +53,7 @@ class _RegisterPage extends State<RegisterPage> {
                   textAlign: TextAlign.center,
                   onChanged: (value) {
                     email = value;
+                        // ignore: unnecessary_statements
                         (value) {
                       if (value!.isEmpty) {
                         return 'Please enter a valid email';
@@ -63,7 +66,6 @@ class _RegisterPage extends State<RegisterPage> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(
                                 Radius.circular(32.0))));
-                    ;
                   }),
               SizedBox(
                 height: 20.0,
@@ -73,6 +75,7 @@ class _RegisterPage extends State<RegisterPage> {
                 textAlign: TextAlign.center,
                 onChanged: (value) {
                   password = value;
+                      // ignore: unnecessary_statements
                       (value) {
                     if (value!.isEmpty) {
                       return 'Please enter a valid email';
@@ -105,17 +108,15 @@ class _RegisterPage extends State<RegisterPage> {
                       await _auth.createUserWithEmailAndPassword(
                           email: email, password: password);
 
-                      if (newuser != null) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HomePage()),
-                        );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HomePage()),
+                      );
 
-                        setState(() {
-                          showProgress = false;
-                        });
-                      }
+                      setState(() {
+                        showProgress = false;
+                      });
                     } catch (e) {}
                   },
                   minWidth: 200.0,
@@ -130,19 +131,22 @@ class _RegisterPage extends State<RegisterPage> {
               SizedBox(
                 height: 15.0,
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
-                  );
-                },
-                child: Text(
-                  "Already Registered? Login Now",
-                  style: TextStyle(
-                      color: Colors.deepPurple, fontWeight: FontWeight.w900),
-                ),
-              )
+             GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => LoginPage(snapshot: snapshot)),
+              );
+
+              child:
+              Text(
+                "Already Registered? Login Now",
+                style: TextStyle(
+                    color: Colors.deepPurple, fontWeight: FontWeight.w900),
+              );
+            }
+            )
             ],
           ),
         ),

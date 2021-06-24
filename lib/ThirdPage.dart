@@ -16,7 +16,7 @@ class Record {
         Email = map['Email'],
         Phone = map['Phone'];
 
-  Record.fromSnapshot(DocumentSnapshot snapshot)
+  Record.fromSnapshot(snapshot)
       : this.fromMap(snapshot.data, reference: snapshot.reference);
 
   @override
@@ -48,7 +48,7 @@ class ThirdPage extends StatelessWidget {
 
   Widget _buildBody(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: Firestore.instance.collection('Table List').snapshots(),
+      stream: FirebaseFirestore.instance.collection('Table List').snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) return LinearProgressIndicator();
 
@@ -58,7 +58,7 @@ class ThirdPage extends StatelessWidget {
               DataColumn(label: Text("Phone", textScaleFactor: 1.5, style: TextStyle(fontWeight: FontWeight.bold,color: Colors.blueGrey,))),
               DataColumn(label: Text("Email", textScaleFactor: 1.5, style: TextStyle(fontWeight: FontWeight.bold,color: Colors.blueGrey,))),
             ],
-            rows: _buildList(context, snapshot.data!.documents)
+            rows: _buildList(context, snapshot.data!.docs)
 
         );
 
