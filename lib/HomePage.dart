@@ -34,6 +34,9 @@ class _HomeState extends State<HomePage> {
 
   CollectionReference SdCollectionReference=FirebaseFirestore.instance.collection("BodyPost");
 
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  //late User UserFirebase;
+  late User user;
 
   @override
   void initState() {
@@ -49,18 +52,18 @@ class _HomeState extends State<HomePage> {
       sdSnapshot=SdDatasnap.docs;
     });
 
-
     super.initState();
-    initUser();
+    initUser().whenComplete(() {
+      setState(() {});
+    });
+
+
+    //initUser();
   }
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  late User UserFirebase;
-
-
   initUser() async {
-    UserFirebase = Future as User; _auth.currentUser!;
-    setState(() {});
+    user  = _auth.currentUser;
+    //UserFirebase = Future as User; _auth.currentUser!;
   }
 
 
@@ -95,7 +98,7 @@ class _HomeState extends State<HomePage> {
           child: new ListView(
             children: <Widget>[
               UserAccountsDrawerHeader(
-                accountEmail: Text("${UserFirebase.email}"),
+                accountEmail: Text("${user.email}"),
                 decoration: new BoxDecoration(
                     color: Colors.purple
                 ), accountName: null,
