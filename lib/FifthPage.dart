@@ -8,7 +8,7 @@ class FifthPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
             title: Text("Pie Chart"),
-            backgroundColor: Colors.purple,
+            backgroundColor: Colors.orange,
             actions: <Widget>[
               new IconButton(
                   icon: new Icon(Icons.home),

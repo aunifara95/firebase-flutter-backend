@@ -20,7 +20,7 @@ class _PostDetailsState extends State<PostDetails> {
 
       appBar: new AppBar(
         title: new Text("Post Details"),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.orange,
       ),
 
       body: new Card(

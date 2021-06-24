@@ -73,7 +73,7 @@ class _HomeState extends State<HomePage> {
     return new Scaffold(
         appBar: new AppBar(
           title: new Text("Firebase Backend App"),
-          backgroundColor: Colors.purple,
+          backgroundColor: Colors.orange,
           actions: <Widget>[
             new IconButton(
                 icon: new Icon(Icons.search),

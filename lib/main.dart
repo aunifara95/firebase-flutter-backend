@@ -8,7 +8,7 @@ void main() async{
   runApp(new MaterialApp(
     home: Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.orange,
       ),
       body: HomePage(),
     ),

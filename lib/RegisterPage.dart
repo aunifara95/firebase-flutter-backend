@@ -25,7 +25,7 @@ class _RegisterPage extends State<RegisterPage> {
     return Scaffold(
       appBar: AppBar(
           title: Text("Register"),
-          backgroundColor: Colors.purple,
+          backgroundColor: Colors.orange,
           actions: <Widget>[
             new IconButton(
                 icon: new Icon(Icons.home),

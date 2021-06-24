@@ -29,7 +29,7 @@ class ForthPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Name Details'),
-        backgroundColor: Colors.purple,),
+        backgroundColor: Colors.orange,),
 
       body: _buildBody(context),
     );

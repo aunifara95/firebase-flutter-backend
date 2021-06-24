@@ -29,7 +29,7 @@ class _MyLoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(
           title: Text("Login"),
-          backgroundColor: Colors.purple,
+          backgroundColor: Colors.orange,
           actions: <Widget>[
             new IconButton(
                 icon: new Icon(Icons.home),
