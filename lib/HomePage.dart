@@ -62,7 +62,7 @@ class _HomeState extends State<HomePage> {
   }
 
   initUser() async {
-    user  = _auth.currentUser;
+    user  = _auth.currentUser!;
     //UserFirebase = Future as User; _auth.currentUser!;
   }
 
